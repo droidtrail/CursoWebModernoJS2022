@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Selecionar Elementos #01</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
+
 <body class="conteudo exercicio">
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
-    <script>              
-        // ...
+    <script>
+        document.getElementById('primeiro').classList.add('destaque')
+        // Pegar todos os divs e atribuir a variável divs
+        const divs = document.getElementsByTagName('div')
+        /*
+        Transformarum html collection em um array, percorrer
+        o array e remover o estilo "destaque" que fora aplicado na linha 13
+        */
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+        
+        //Transformar um html collection em um array utilizando Spread
+        const divsArray = [...divs]
+        //Aplicar o estilo css "destaque a todos os divs"
+        divsArray.forEach(e =>e.classList.add('destaque'))
+
+        /*
+        Atribui a variável ultimosElementos todos os div encontrados na tela,
+        sem converter para array, e remove da div que contém a classe "ultimo" 
+        o estilo css "destaque"
+        */
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for(let e of ultimosElementos){
+            e.classList.remove('destaque')
+        }
+
+
     </script>
 </body>
+
 </html>
